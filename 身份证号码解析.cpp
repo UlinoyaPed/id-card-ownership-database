@@ -73,10 +73,12 @@ Copyright (c) [2022] [Crevus_carpio]
    See the Mulan PSL v2 for more details.  
    */
 
-#include<iostream>
-#include<cstdio>
-#include<cstring>
-#include<conio.h>
+#include <iostream>
+#include <cstdio>
+#include <cstring>
+#include <conio.h>
+#include <ctime>
+
 using namespace std;
 int main(){
 	int ai[18]={},S;//定义身份证号S
@@ -7992,8 +7994,19 @@ int main(){
 				break;
 			}
 		if (!ok3) cout << "Not found" << endl;//县级 
-		
-	cout<<"Exit...";//输入任意字符退出 
+	
+	//获取年龄
+	time_t now = time(0);
+	char* dt = ctime(&now);
+	cout<<dt;
+	tm *ltm = localtime(&now);
+	int cha;
+	cha = 1900+ltm->tm_year - (ai[10]*1000+ai[9]*100+ai[8]*10+ai[7]);
+	cout<<"年龄："<<cha<<endl;
+	
+	cout<<"Exit...";//输入任意字符退出
+	
 	getch();
 	return 0;
  } 
+
