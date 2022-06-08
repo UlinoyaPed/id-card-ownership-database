@@ -1,6 +1,6 @@
 /* 
-Copyright (c) [2022] [Crevus_carpio]
-   [Software Name] is licensed under Mulan PSL v2.
+Copyright (c) [2022] [UlinoyaPed]
+   [ID card number resolution] is licensed under Mulan PSL v2.
    You can use this software according to the terms and conditions of the Mulan PSL v2. 
    You may obtain a copy of Mulan PSL v2 at:
             http://license.coscl.org.cn/MulanPSL2 
@@ -64,8 +64,8 @@ Copyright (c) [2022] [Crevus_carpio]
       iii Attach the statement to the appropriate annotated syntax at the beginning of each source file.
 
 
-   Copyright (c) [Year] [name of copyright holder]
-   [Software Name] is licensed under Mulan PSL v2.
+   Copyright (c) [2022] [UlinoyaPed]
+   [ID card number resolution] is licensed under Mulan PSL v2.
    You can use this software according to the terms and conditions of the Mulan PSL v2. 
    You may obtain a copy of Mulan PSL v2 at:
                http://license.coscl.org.cn/MulanPSL2 
@@ -83,7 +83,7 @@ using namespace std;
 int main(){
 	int ai[18]={},S;//定义身份证号S
 	string a,b;
-	cout<<"输入身份证号前17位"<<endl;
+	cout<<"输入身份证号前17位(18位也可以)"<<endl;
 	cin>>b;//输入身份证号 
 	for(int i=0;i<=16;i++) a+=b[i];
 	int len=a.size();
@@ -8001,15 +8001,16 @@ int main(){
 	cout<<"现在的时间："<<dt;
 	tm *ltm = localtime(&now);
 	
-	int cha,idyear,idmon,idday;
+	int chay,idyear,idmon,idday;
 	idyear = ai[10]*1000+ai[9]*100+ai[8]*10+ai[7];
 	idmon = ai[6]*10+ai[5];
 	idday = ai[4]*10+ai[3];
-	cha = 1900+ltm->tm_year - (idyear);
+	chay = 1900+ltm->tm_year - (idyear);
 	if(1+ltm->tm_mon<=idmon & ltm->tm_mday<idday){
-		cha--;//没过生日减一岁 
+		chay--;//没过生日减一岁 
 	}
-	cout<<"年龄："<<cha<<endl;
+	printf("年龄%d岁\n",chay);
+	//cout<<"年龄："<<cha<<endl;
 	//cout<<idyear<<idmon<<idday;
 	
 	cout<<"输入任意字符退出...";
