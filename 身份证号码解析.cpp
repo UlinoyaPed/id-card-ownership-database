@@ -7998,15 +7998,22 @@ int main(){
 	//获取年龄
 	time_t now = time(0);
 	char* dt = ctime(&now);
-	cout<<dt;
+	cout<<"现在的时间："<<dt;
 	tm *ltm = localtime(&now);
-	int cha;
-	cha = 1900+ltm->tm_year - (ai[10]*1000+ai[9]*100+ai[8]*10+ai[7]);
+	
+	int cha,idyear,idmon,idday;
+	idyear = ai[10]*1000+ai[9]*100+ai[8]*10+ai[7];
+	idmon = ai[6]*10+ai[5];
+	idday = ai[4]*10+ai[3];
+	cha = 1900+ltm->tm_year - (idyear);
+	if(1+ltm->tm_mon<=idmon & ltm->tm_mday<idday){
+		cha--;//没过生日减一岁 
+	}
 	cout<<"年龄："<<cha<<endl;
+	//cout<<idyear<<idmon<<idday;
 	
-	cout<<"Exit...";//输入任意字符退出
-	
-	getch();
+	cout<<"输入任意字符退出...";
+	getch();//输入任意字符退出
 	return 0;
  } 
 
