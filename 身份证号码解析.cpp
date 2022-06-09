@@ -81,8 +81,8 @@ Copyright (c) [2022] [UlinoyaPed]
 
 using namespace std;
 int main(){
-	int ai[18]={},S;//定义身份证号S
-	string a,b;
+	int ai[18]={},S;
+	string a,b;//定义身份证号b
 	cout<<"输入身份证号前17位(18位也可以)"<<endl;
 	cin>>b;//输入身份证号 
 	for(int i=0;i<=16;i++) a+=b[i];
@@ -8009,9 +8009,14 @@ int main(){
 	if(1+ltm->tm_mon<=idmon & ltm->tm_mday<idday){
 		chay--;//没过生日减一岁 
 	}
-	printf("年龄%d岁\n",chay);
+	printf("年龄：%d岁\n",chay);
 	//cout<<"年龄："<<cha<<endl;
 	//cout<<idyear<<idmon<<idday;
+	
+	//验证身份证号合法性
+	if(ok2 == false | chay < 0 | chay > 120){
+		cout<<"身份证号不合法，请检查后再输入"<<endl; 
+	} 
 	
 	cout<<"输入任意字符退出...";
 	getch();//输入任意字符退出
